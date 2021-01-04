@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+//import YouTubePlayer from './components/YouTubePlayer';
+import YouTubePlayer from './components/YouTubeFramePlayer';
+import Button from './components/Button';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <YouTubePlayer video="mYFaghHyMKc" autoplay="true" rel="0" modest="1"/>
+      <Button onClick={onButtonClick}/>
     </div>
   );
+}
+
+function onButtonClick() {
+  const player = document.getElementById('player');
+  //const player = document.getElementsByTagName('YouTubePlayer')[0];
+  console.log('onButtonClick:', player, window['yp']);
+  window['yp'].loadVideoById({videoId: 'bHQqvYy5KYo'});//playVideo();
 }
 
 export default App;
